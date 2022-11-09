@@ -24,6 +24,11 @@ class ApplicationController < Sinatra::Base
     unit.to_json
   end
 
+  get "/units/students/:id" do
+    unit = Unit.find(params[:id])
+    unit.students.to_json
+  end
+
     #Student Section
   # Create a new Student
   post "/students" do
