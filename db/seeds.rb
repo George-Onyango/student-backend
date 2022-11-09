@@ -12,7 +12,9 @@ Student.create(name: "Kevin", surname: "Guchu", gender:"male", password: "kevome
 
 Student.create(name: "henri", surname: "Guchu", gender:"male", password: "youguymyguy", national_id: Faker::Number.number(digits: 8), admission_number: Faker::Number.number(digits: 7), date_of_birth: "1998-11-23")
 
-    Student.all.each do |student|
+Student.create(name: "george", surname: "nthiga", gender:"male", password: "@george 1", national_id: Faker::Number.number(digits: 8), admission_number: Faker::Number.number(digits: 7), date_of_birth: "1998-11-23")
+   
+Student.all.each do |student|
         3.times do
             Unit.create(name: Faker::Educator.subject, description: Faker::Lorem.sentence, code: Faker::Number.number(digits: 3), unit_grade: Faker::Number.between(from: 1, to: 100), category_id: Faker::Educator.course, student_id: student.id)
         end
