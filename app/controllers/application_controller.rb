@@ -36,6 +36,17 @@ class ApplicationController < Sinatra::Base
     student.to_json
   end
 
+  post "/student/:id" do
+    student = Student.find(params[:id])
+    students.units.create(name: params[:name], description: params[:description], code: params[:code], )
+  end
+
+  delete "/students/unit/:id" do
+    student = Student.find(params[:id])
+    unit.destroy
+    student.to_json
+  end
+
   patch "/students/:id" do
     student = Student.find(params[:id])
     student.update(name: params[:name], surname: params[:surname], password: params[:password], national_id: params[:national_id], admission_number: params[:admission_number], date_of_birth: params[:date_of_birth])
