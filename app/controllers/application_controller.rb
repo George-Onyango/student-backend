@@ -24,10 +24,26 @@ class ApplicationController < Sinatra::Base
     unit.to_json
   end
 
+  get "/units/students/:id" do
+    unit = Unit.find(params[:id])
+    unit.students.to_json
+  end
+
     #Student Section
   # Create a new Student
   post "/students" do
     student = Student.create(name: params[:name], surname: params[:surname], gender: params[:gender], password: params[:password], national_id: params[:national_id], admission_number: params[:admission_number], date_of_birth: params[:date_of_birth])
+    student.to_json
+  end
+
+  post "/student/:id" do
+    student = Student.find(params[:id])
+    students.units.create(name: params[:name], description: params[:description], code: params[:code], )
+  end
+
+  delete "/students/unit/:id" do
+    student = Student.find(params[:id])
+    unit.destroy
     student.to_json
   end
 

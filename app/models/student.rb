@@ -1,4 +1,4 @@
 class Student < ActiveRecord::Base
  has_many :units
- belongs_to :category
+ belongs_to :course
 end
